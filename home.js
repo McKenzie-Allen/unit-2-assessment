@@ -129,10 +129,14 @@ const deals = [{
 */
 
 //CODE HERE
+// var { title } = deals[0]
+// var newTitle = title.replace("15", "10")
+// console.log(newTitle)
+// deals[0].title = newTitle
+// console.log(deals)
+
 var { title } = deals[0]
-var newTitle = title.replace("15", "10")
-console.log(newTitle)
-deals[0].title = newTitle
+deals[0].title = title.replace("15", "10")
 console.log(deals)
 
 /*
@@ -149,3 +153,8 @@ console.log(deals)
 */
 
 //CODE HERE
+var { desc } = deals[1]
+deals[1].desc = desc.trim()
+var { desc } = deals[1]
+deals[1].desc = desc.replace("March", "April")
+console.log(deals)
