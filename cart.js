@@ -56,31 +56,51 @@ console.log(summedPrice)
     */
 
 //CODE HERE
+const calcFinalPrice = (cartTotal, couponValue, tax) => {
+    let salesTax = cartTotal * tax
+    return salesTax + cartTotal - couponValue
+}
 
 
+console.log(calcFinalPrice(summedPrice, 0, .06))
 
-//////////////////PROBLEM 3////////////////////
-/*  
-    In this problem, you'll create a model for 
-    a customer object as well as an example
-    object. 
+let finalPrice = calcFinalPrice(summedPrice, 0, .06)
+    //////////////////PROBLEM 3////////////////////
+    /*  
+        In this problem, you'll create a model for 
+        a customer object as well as an example
+        object. 
 
-    Plan out a customer object for the cart page.
-    Think about the information that a 
-    restaurant would need about its customers.
+        Plan out a customer object for the cart page.
+        Think about the information that a 
+        restaurant would need about its customers.
 
-    In the TEXT ANSWER area below, describe the
-    properties that your customer object will have
-    and why you chose those properties.
+        In the TEXT ANSWER area below, describe the
+        properties that your customer object will have
+        and why you chose those properties.
 
-    Explain what data types each property should be
-    and why you chose those data types. 
+        Explain what data types each property should be
+        and why you chose those data types. 
 
-    Your object should have at least 4 properties. 
-*/
+        Your object should have at least 4 properties. 
+    */
 
 /*
     TEXT ANSWER HERE
+    sitDown
+    this will be a bool and let the restraunt know if the customer is staying to eat.
+
+    spent
+    This will be a number that will be how huch that is in the cart. it will be the variable of finalPrice
+
+    whereFrom
+    this will be a string that will be what state the customer is from.
+
+    age
+    this will be a number of how old the customer is.
+
+    name
+    this with be a string that is the name of the customer
 
 */
 
@@ -90,3 +110,13 @@ console.log(summedPrice)
 */
 
 //CODE HERE
+
+let customer = {
+    name: "Alistar",
+    spent: finalPrice,
+    whereFrom: "utah",
+    age: 31,
+    sitDown: false
+}
+
+console.log(customer)
