@@ -80,20 +80,34 @@ canWeDeliver(85205)
 */
 
 // CODE HERE
+const canWeDeliverTwo = (zipcode) => {
+    let value = false
+    for (i = 0; i < deliveryAreaZipCodes.length; i++) {
+        if (deliveryAreaZipCodes[i] === zipcode) {
+            value = true
+        }
+    }
+    if (value === true) {
+        console.log(`We are able to deliver to ${zipcode}`)
+    } else {
+        console.log(`I am sorry we are not able to deliver to ${zipcode}`)
+    }
+}
+canWeDeliverTwo(84606)
 
+canWeDeliverTwo(85205)
+    //////////////////PROBLEM 3////////////////////
+    /* 
+        Below is an array of objects that have some
+        information about a couple of deals that are
+        available at the restaurant currently. 
 
-//////////////////PROBLEM 3////////////////////
-/* 
-    Below is an array of objects that have some
-    information about a couple of deals that are
-    available at the restaurant currently. 
+        You are going to access the object's properties 
+        and change some values. Don't edit the array 
+        directly, let's use the `replace` method.
 
-    You are going to access the object's properties 
-    and change some values. Don't edit the array 
-    directly, let's use the `replace` method.
-
-    Read on for more instructions.
-*/
+        Read on for more instructions.
+    */
 
 const deals = [{
         title: '15% Off!',
@@ -115,8 +129,11 @@ const deals = [{
 */
 
 //CODE HERE
-
-
+var { title } = deals[0]
+var newTitle = title.replace("15", "10")
+console.log(newTitle)
+deals[0].title = newTitle
+console.log(deals)
 
 /*
     The restaurant is going to continue its
