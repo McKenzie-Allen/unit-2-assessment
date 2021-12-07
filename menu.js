@@ -61,7 +61,7 @@ console.log(pizza.popularity)
 */
 
 //CODE HERE
-
+console.log(pizza.tags[1])
 
 /*
     Third, destructure the price off of the
@@ -71,7 +71,8 @@ console.log(pizza.popularity)
 */
 
 //CODE HERE
-
+var { price, category } = pizza
+console.log(price)
 
 /*
     Fourth, and last, destructure the category
@@ -81,7 +82,7 @@ console.log(pizza.popularity)
 */
 
 //CODE HERE
-
+console.log(category)
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -97,8 +98,81 @@ console.log(pizza.popularity)
 
 //CODE HERE
 
+let foodArr = [{
+        name: "pepperoni",
+        price: 7.99,
+        category: "entree",
+        popularity: 3,
+        rating: 8,
+        tags: ["one topping", "savory", 'famous']
+    }, {
+        name: "Ham and Pinapple",
+        price: 8.99,
+        category: "entree",
+        popularity: 2,
+        rating: 9,
+        tags: ["kids", "NOT HAWAIIAN", "JUST BECAUSE IT HAS PINAPPLE ON IT DOES NOT MAKE IT HAWAIIAN!!!!"]
+    }, {
+        name: "fruit",
+        price: 10.99,
+        category: "dessert",
+        popularity: 10,
+        rating: 7,
+        tags: ["kids", "dessert pizza", "contains nuts"]
+    }, {
+        name: "basalmic",
+        price: 9.99,
+        category: "entree",
+        popularity: 25,
+        rating: 4,
+        tags: ["Adults", "umami", "vegan cheese"]
+    }, {
+        name: "fixins",
+        price: 15.99,
+        category: "entree",
+        popularity: 15,
+        rating: 6,
+        tags: ["Adults", "contains all ingredents", 'no really it has everything']
+    }, ]
+    // class pizzaMaker {
+    //     constructor(name, price, category, popularity, rating, tags) {
+    //         this.name = name
+    //         this.price = price
+    //         this.category = category
+    //         this.popularity = popularity
+    //         this.rating = rating
+    //         this.tags = tags
+    //     }
+    // }
+    // let foodArr = []
+    // var pizza1 = new pizzaMaker("pepperoni", 7.99, "entree", 3, 8, ["one topping", "savory", 'famous'])
+    // foodArr.push(pizza1)
+    // var pizza2 = new pizzaMaker("Ham and Pinapple", 8.99, "entree", 2, 9, ["kids", "NOT HAWAIIAN", "JUST BECAUSE IT HAS PINAPPLE ON IT DOES NOT MAKE IT HAWAIIAN!!!!"])
+    // foodArr.push(pizza2)
+    // var pizza3 = new pizzaMaker("fruit", 10.99, "dessert", 10, 7, ["kids", "dessert pizza", "contains nuts"])
+    // foodArr.push(pizza3)
+    // var pizza4 = new pizzaMaker("basalmic", 9.99, "entree", 25, 4, ["Adults", "umami", "vegan cheese"])
+    // foodArr.push(pizza4)
+    // var pizza5 = new pizzaMaker("fixins", 15.99, 'entree', 15, 6, ["Adults", "contains all ingredents", 'no really it has everything'])
+    // foodArr.push(pizza5)
+    // console.log(foodArr)
 
-
+// class foodArr {
+//     constructor(name, price, category, popularity, rating, tags) {
+//         this.name = name
+//         this.price = price
+//         this.category = category
+//         this.popularity = popularity
+//         this.rating = rating
+//         this.tags = tags
+//     }
+// }
+// var pizza1 = new foodArr("pepperoni", 7.99, "entree", 3, 8, ["one topping", "savory", 'famous'])
+// var pizza2 = new foodArr("Ham and Pinapple", 8.99, "entree", 2, 9, ["kids", "NOT HAWAIIAN", "JUST BECAUSE IT HAS PINAPPLE ON IT DOES NOT MAKE IT HAWAIIAN!!!!"])
+// var pizza3 = new foodArr("fruit", 10.99, "dessert", 10, 7, ["kids", "dessert pizza", "contains nuts"])
+// var pizza4 = new foodArr("basalmic", 9.99, "entree", 25, 4, ["Adults", "umami", "vegan cheese"])
+// var pizza5 = new foodArr("fixins", 15.99, 'entree', 15, 6, ["Adults", "contains all ingredents", 'no really it has everything'])
+// console.log(foodArr)
 //////////////////PROBLEM 4////////////////////
 /* 
     Let's filter the food objects according
@@ -114,8 +188,10 @@ console.log(pizza.popularity)
 //CODE HERE
 
 // const filteredFood = foodArr.filter(/* CALLBACK HERE */)
-
-
+const filteredFood = foodArr.filter(function(ele) {
+    return ele.tags[0] === "kids";
+})
+console.log(filteredFood)
 
 //////////////////PROBLEM 5////////////////////
 /* 
@@ -157,7 +233,58 @@ console.log(pizza.popularity)
 */
 
 //CODE HERE
+// filterByProperty = (prop, number, type) => {
+//     const propertyFilterArr = foodArr.filter(function(ele) {
+//         if (type === "above" && prop === "price") {
+//             return ele.price >= number
+//         } else if (type === "above" && prop === "rating") {
+//             return ele.rating >= number
+//         } else if (type === "above" && prop === "popularity") {
+//             return ele.popularity >= number
+//         } else if (type === "below" && prop === "price") {
+//             return ele.price <= number
+//         } else if (type === "below" && prop === "rating") {
+//             return ele.rating <= number
+//         } else if (type === "below" && prop === "popularity") {
+//             return ele.popularity <= number
+//         }
 
+//     })
+//     return propertyFilterArr
+// }
+filterByProperty = (prop, number, type) => {
+    if (type === "above" && prop === "price") {
+        const propertyFilterArr = foodArr.filter(function(ele) {
+            return ele.price >= number
+        })
+        return propertyFilterArr
+    } else if (type === "above" && prop === "rating") {
+        const propertyFilterArr = foodArr.filter(function(ele) {
+            return ele.rating >= number
+        })
+        return propertyFilterArr
+    } else if (type === "above" && prop === "popularty") {
+        const propertyFilterArr = foodArr.filter(function(ele) {
+            return ele.popularty >= number
+        })
+        return propertyFilterArr
+    } else if (type === "below" && prop === "price") {
+        const propertyFilterArr = foodArr.filter(function(ele) {
+            return ele.price <= number
+        })
+        return propertyFilterArr
+    } else if (type === "below" && prop === "rating") {
+        const propertyFilterArr = foodArr.filter(function(ele) {
+            return ele.rating <= number
+        })
+        return propertyFilterArr
+    } else if (type === "below" && prop === "popularty") {
+        const propertyFilterArr = foodArr.filter(function(ele) {
+            return ele.popularity <= number
+        })
+        return propertyFilterArr
+    }
+}
 
 /*
     Invoke the `filterByProperty` function passing
@@ -167,3 +294,5 @@ console.log(pizza.popularity)
 */
 
 //CODE HERE
+console.log("this is a the filter by property")
+console.log(filterByProperty("price", 10, "above"))
